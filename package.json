@@ -4,5 +4,8 @@
     "test": "npm run bdd:gen && npx playwright test",
     "test:ui": "npm run bdd:gen && npx playwright test --ui",
     "report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "bdd:gen": "npx playwright-bdd",
+    "test": "npm run bdd:gen && npx playwright test",
+    "test:ui": "npm run bdd:gen && npx playwright test --ui",
+    "report": "npx playwright show-report"
+  }
+}

@@ -22,14 +22,10 @@ jobs:
       - name: Install Playwright browsers + deps
         run: npx playwright install --with-deps
 
-      - name: Generate BDD specs
-        run: npx playwright-bdd
+      - name: Run tests
+        run: npm test
 
-      - name: Run Playwright tests
-        run: npx playwright test --reporter=html
-
-      # sobe o report sempre (mesmo quando o step anterior falha)
-      - name: Upload Playwright HTML report
+      - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -38,8 +34,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
-      # sobe evidências de falha (traces/videos/screenshots)
-      - name: Upload Playwright test artifacts
+      - name: Upload test-results
         if: always()
         uses: actions/upload-artifact@v4
         with:
